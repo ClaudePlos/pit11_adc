@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class OknoGlownePit_2016 extends javax.swing.JFrame {
 
     /**
-     * Creates new form OknoGlownePit
+     * Creates new form OknoGlownePit v23 pit
      */
     
     
@@ -51,8 +51,10 @@ public class OknoGlownePit_2016 extends javax.swing.JFrame {
         butGenXML = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1294, 510));
+        setResizable(false);
 
-        jLabel1.setText("ADC Pit 2016");
+        jLabel1.setText("ADC Pit 2017(za 16)");
 
         buttOpenFile.setText("Otwórz CSV");
         buttOpenFile.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +92,7 @@ public class OknoGlownePit_2016 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableMSG, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
+                    .addComponent(tableMSG, javax.swing.GroupLayout.DEFAULT_SIZE, 1385, Short.MAX_VALUE)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttOpenFile)
@@ -112,7 +114,7 @@ public class OknoGlownePit_2016 extends javax.swing.JFrame {
                 .addComponent(tableMSG, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(msgLiczbaRow)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -323,7 +325,7 @@ public class OknoGlownePit_2016 extends javax.swing.JFrame {
                        msg = msg + "<KodFormularza kodPodatku=\"PIT\" kodSystemowy=\"PIT-11 (23)\" rodzajZobowiazania=\"Z\" wersjaSchemy=\"1-0E\">PIT-11</KodFormularza>" + '\n';
                        msg = msg + "<WariantFormularza>23</WariantFormularza>" + '\n';
                        msg = msg + "<CelZlozenia poz=\"P_6\">1</CelZlozenia>" + '\n'; /// KS - add - 2014-07-04 Jeżeli Korekta to dajemy 2. Zwykłe 1
-                       msg = msg + "<Rok>2015</Rok>" + '\n';
+                       msg = msg + "<Rok>2016</Rok>" + '\n';
                        msg = msg + "<KodUrzedu>" + tabMSG.getModel().getValueAt(i, 3) + "</KodUrzedu>" + '\n';
                        msg = msg + "</Naglowek>" + '\n';
                        msg = msg + "<Podmiot1 rola=\"Płatnik\">" + '\n';;       
@@ -363,9 +365,9 @@ public class OknoGlownePit_2016 extends javax.swing.JFrame {
                        msg = msg + "<Nazwisko>" + tabMSG.getModel().getValueAt(i, 7) + "</Nazwisko>" + '\n';
                        
                        // w zależności jak prześle ale data powinna być w formacie YYYY-MM-DD
-                       msg = msg + "<DataUrodzenia>" + tabMSG.getModel().getValueAt(i, 9).toString().substring(6, 10) + "-" 
-                                                     + tabMSG.getModel().getValueAt(i, 9).toString().substring(3, 5) + "-" 
-                                                     + tabMSG.getModel().getValueAt(i, 9).toString().substring(0, 2) + 
+                       msg = msg + "<DataUrodzenia>" + tabMSG.getModel().getValueAt(i, 9).toString().substring(0, 4) + "-" 
+                                                     + tabMSG.getModel().getValueAt(i, 9).toString().substring(5, 7) + "-" 
+                                                     + tabMSG.getModel().getValueAt(i, 9).toString().substring(8, 10) + 
                                "</DataUrodzenia>" + '\n';
                        //msg = msg + "<DataUrodzenia>" + tabMSG.getModel().getValueAt(i, 9) + "</DataUrodzenia>" + '\n';
                        
@@ -479,7 +481,7 @@ public class OknoGlownePit_2016 extends javax.swing.JFrame {
                        System.out.println(msg);
                       
                           out2 = new BufferedWriter(new OutputStreamWriter(
-                                new FileOutputStream("c:\\pit11_ADC\\out\\pit11_2015_" + plikNazwa + ".xml"),"UTF-8"));
+                                new FileOutputStream("c:\\pit11_ADC\\out\\pit11_2016_" + plikNazwa + ".xml"),"UTF-8"));
             
                           out2.write( msg );
                           out2.close();
